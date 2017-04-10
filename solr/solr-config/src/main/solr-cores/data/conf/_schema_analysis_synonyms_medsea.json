@@ -7,71 +7,113 @@
   "initializedOn": "2014-09-30T09:46:43.104Z",
   "updatedSinceInit": "2014-09-30T09:47:03.147Z",
   "managedMap": {
-    "No charge": [
-      "Free"
+    "Not or not well documented": [
+      "No information"
     ],
-    "Distribution cost charge": [
-      "Cost charge"
+    "Distribution charge": [
+      "Charge"
     ],
-    "Collection cost charge": [
-      "Cost charge"
+    "Collection charge": [
+      "Charge"
     ],
-    "Commercial cost charge": [
-      "Commercial cost"
+    "Commercial charge": [
+      "Charge"
     ],
-    "Cost charge depends on intented use and category of users": [
-      "Cost charge"
+    "Free of charge for academic institutions and uses": [
+      "Charge"
     ],
-    "Cost charge depends on intended use and category of users": [
-      "Cost charge"
+    "Open and Free. No charge": [
+      "No charge"
+    ],
+    "Not or not well documented": [
+      "No information"
     ],
     "Restricted": [
-      "Restricted"
+      "Low sharing"
     ],
     "Accessible under moratorium": [
-      "Partially restricted"
+      "Medium sharing"
     ],
     "Unrestricted": [
-      "Unrestricted"
+      "High sharing"
     ],
-    "&lt;15mn (on-line download)": [
-      "High response"
-    ],
-    "Less than 3 hours": [
-      "Medium response"
-    ],
-    "Less than 24 hours": [
-      "Medium response"
-    ],
-    "Less than 1 week": [
-      "Medium response"
-    ],
-    "More than 1 week": [
+    "No information is found on response time": [
       "Low response"
     ],
-    "Not documented": [
-      "Unknown"
+    "More than 1 week for release": [
+      "Low response"
+    ],
+    "Less or equal to 1 week for release": [
+      "Medium response"
+    ],
+    "Online downloading (i.e. a few hours or less) for release": [
+      "High response"
     ],
     "Unknown": [
       "Unknown"
     ],
-    "Order form/envoice": [
-      "Manual"
+    "No information was found on data delivery mechanisms": [
+      "Low accessibility"
     ],
-    "Order form/invoice": [
-      "Manual"
+    "Manual process: Order form/invoice is requested": [
+      "Low accessibility"
     ],
-    "On-line downloading services": [
-      "Partial INSPIRE function"
+    "Online downloading services": [
+      "Medium accessibility"
     ],
-    "On-line discovery+viewing + downloading services": [
-      "Full INSPIRE function"
+    "Online discovery + downloading + viewing services (Advanced services)": [
+      "High accessibility"
     ],
-    "On-line discovery + viewing + downloading services": [
-      "Full INSPIRE function"
+    "Online discovery and downloading services": [
+      "High accessibility"
     ],
-    "On-line discovery + viewing + downloading + advanced services (High resolution viewing,3D viewing services, Processing/Mapping services...)": [
-      "Full INSPIRE function"
+    "Cited in peer reviewed paper or grey literature but no info on how to access": [
+      "Low visibility"
+    ],
+    "Information retrieved upon specific request to the data source": [
+      "Low visibility"
+    ],
+    "Use of social network, community of practices sharing information, portals of organization where no search is organized": [
+      "Medium visibility"
+    ],
+    "Search via reference catalogue (e.g. MyOcean, GEOSS Geoportal…)": [
+      "High visibility"
+    ],
+    "Use of open search engines, searching by name either the data provider or the characteristics": [
+      "High visibility"
+    ],
+    "Data sets are not referenced in a catalogue or are referenced in a non public catalogue": [
+      "Low visibility"
+    ],
+    "The datasets are referenced in a public national catalogue, in an international catalogue service": [
+      "Medium visibility"
+    ],
+    "The datasets are provided through an EU Inspire catalogue service (OGC)": [
+      "High visibility"
+    ],
+    "There is no information at all on data policy adopted by data providers": [
+      "Low transparency"
+    ],
+    "There is information, but details are available only on request": [
+      "Medium transparency"
+    ],
+    "There is detailed information provided to understand data policy": [
+      "High transparency"
+    ],
+    "Format not or not well documented": [
+      "Not ready to be consumed"
+    ],
+    "Proprietary format and not well documented": [
+      "Not ready to be consumed"
+    ],
+    "Format not proprietary but content not clearly specified": [
+      "Not ready to be consumed"
+    ],
+    "Format proprietary but content clearly specified": [
+      "Can be processed to be consumed"
+    ],
+    "Format not proprietary and content clearly specified (e.g. autodescriptive like ODV, NetCDF CF) or at least with appropriate document describing the content": [
+      "Ready to be consumed"
     ]
   }
 }

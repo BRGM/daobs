@@ -124,6 +124,9 @@
       <!-- TODO improve date formatting maybe using Joda parser
       Select first one because some records have 2 dates !
       eg. fr-784237539-bdref20100101-0105
+
+      Remove millisec and timezone until not supported
+      eg. 2017-02-08T13:18:03.138+00:02
       -->
       <xsl:for-each select="gmd:dateStamp/*[text() != '' and position() = 1]">
         <field name="dateStamp">
@@ -133,6 +136,8 @@
                                 then concat(., '-01T00:00:00Z')
                                 else if (name() = 'gco:Date' or string-length(.) = 10)
                                 then concat(., 'T00:00:00Z')
+                                else if (contains(., '.'))
+                                then concat(tokenize(., '\.')[1], 'Z')
                                 else (
                                   if (ends-with(., 'Z'))
                                   then .
@@ -426,7 +431,7 @@
             <xsl:for-each select="*[normalize-space() != '']|
                                   */@xlink:href[normalize-space() != '']|
                                   gmd:PT_FreeText/gmd:textGroup/gmd:LocalisedCharacterString[normalize-space() != '']">
-              <field name="thesaurus_{$key}">
+              <field name="thesaurus_{replace($key, '[^a-zA-Z0-9]', '')}">
                 <xsl:value-of select="normalize-space(.)"/>
               </field>
             </xsl:for-each>
@@ -679,7 +684,7 @@
         <xsl:variable name="title" select="current-grouping-key()"/>
         <xsl:variable name="pass" select="*/gmd:result/*/gmd:pass/gco:Boolean"/>
         <xsl:if test="$pass">
-          <field name="conformTo_{replace(normalize-space($title), ' ', '-')}">
+          <field name="conformTo_{replace(normalize-space($title), '[^a-zA-Z0-9]', '')}">
             <xsl:value-of select="$pass"/>
           </field>
         </xsl:if>
@@ -698,12 +703,12 @@
 
         <!-- Indexing measure value -->
         <xsl:for-each select="gmd:report/*[
-                normalize-space(gmd:nameOfMeasure/gco:CharacterString) != '']">
+                normalize-space(gmd:nameOfMeasure[0]/gco:CharacterString) != '']">
           <xsl:variable name="measureName"
-                        select="normalize-space(gmd:nameOfMeasure/gco:CharacterString)"/>
+                        select="normalize-space(gmd:nameOfMeasure[0]/gco:CharacterString)"/>
           <xsl:for-each select="gmd:result/gmd:DQ_QuantitativeResult/gmd:value">
             <xsl:if test=". != ''">
-              <field name="measure_{$measureName}">
+              <field name="measure_{replace($measureName, '[^a-zA-Z0-9]', '')}">
                 <xsl:value-of select="."/>
               </field>
             </xsl:if>
