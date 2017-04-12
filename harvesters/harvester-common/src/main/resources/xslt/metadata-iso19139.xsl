@@ -257,6 +257,21 @@
           <xsl:with-param name="fieldSuffix" select="'ForResource'"/>
         </xsl:apply-templates>
 
+
+        <!-- Populate producerTerritory only for resource identification
+         contact with role owner or the first one in the point of contact. -->
+        <xsl:choose>
+          <xsl:when test="count(gmd:pointOfContact[*/gmd:role/*/@codeListValue = 'owner']) > 0">
+            <xsl:apply-templates mode="index-producer"
+                                 select="gmd:pointOfContact[*/gmd:role/*/@codeListValue = 'owner'][1]"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:apply-templates mode="index-producer"
+                                 select="gmd:pointOfContact[1]"/>
+          </xsl:otherwise>
+        </xsl:choose>
+
+
         <xsl:for-each select="gmd:credit/*[. != '']">
           <field name="resourceCredit">
             <xsl:value-of select="."/>
@@ -295,11 +310,28 @@
         Take in account gmd:descriptiveKeywords or srv:keywords
         -->
         <!-- TODO: Some MS may be using a translated version of the thesaurus title -->
+
+        <!-- Flag probably wrong INSPIRE thesaurus title -->
+        <xsl:variable name="invalidInspireThesaurusTitle"
+                      select="*/gmd:MD_Keywords[
+                      not(contains(lower-case(
+                       gmd:thesaurusName[1]/*/gmd:title[1]/*[1]/text()
+                       ), 'gemet')) and
+                       contains(lower-case(
+                       gmd:thesaurusName[1]/*/gmd:title[1]/*[1]/text()
+                       ), 'inspire')]"/>
+        <xsl:if test="count($invalidInspireThesaurusTitle) > 0">
+          <field name="thesaurus_inspire_invalid_title">
+            <xsl:value-of select="$invalidInspireThesaurusTitle/gmd:thesaurusName[1]/*/gmd:title[1]/*[1]/text()"/>
+            <xsl:message>Invalid <xsl:value-of select="$invalidInspireThesaurusTitle/gmd:thesaurusName[1]/*/gmd:title[1]/*[1]/text()"/></xsl:message>
+          </field>
+        </xsl:if>
+
+        <!-- Only check if INSPIRE is in the title. This is a geocatalogue.fr
+        change required for "unvalid" metadata using incorrect thesaurus title
+        eg. external._none_.inspire -->
         <xsl:variable name="inspireKeywords"
                       select="*/gmd:MD_Keywords[
-                      contains(lower-case(
-                       gmd:thesaurusName[1]/*/gmd:title[1]/*[1]/text()
-                       ), 'gemet') and
                        contains(lower-case(
                        gmd:thesaurusName[1]/*/gmd:title[1]/*[1]/text()
                        ), 'inspire')]
@@ -854,7 +886,27 @@
       <field name="{$role}Org{$fieldSuffix}">
         <xsl:value-of select="$organisationName"/>
       </field>
+    </xsl:if>
+    <field name="contact{$fieldSuffix}">{
+      org:"<xsl:value-of
+        select="replace($organisationName, '&quot;', '\\&quot;')"/>",
+      role:"<xsl:value-of select="$role"/>"
+      }
+    </field>
+  </xsl:template>
 
+
+  <xsl:template mode="index-producer" match="*[gmd:CI_ResponsibleParty]">
+
+    <!-- Select the first child which should be a CI_ResponsibleParty.
+    Some records contains more than one CI_ResponsibleParty which is
+    not valid and they will be ignored.
+     Same for organisationName eg. de:b86a8604-bf78-480f-a5a8-8edff5586679 -->
+    <xsl:variable name="organisationName"
+                  select="*[1]/gmd:organisationName[1]/(gco:CharacterString|gmx:Anchor)"
+                  as="xs:string*"/>
+    <xsl:message>Indexing producer <xsl:value-of select="$organisationName"/> </xsl:message>
+    <xsl:if test="normalize-space($organisationName) != ''">
       <xsl:variable name="producerTerritory" as="xs:string"
                     select="solr:analyzeField('producerTerritory', $organisationName)"/>
       <xsl:if test="$producerTerritory">
@@ -871,11 +923,5 @@
         <field name="producerSynonym"><xsl:value-of select="$producerSynonym"/></field>
       </xsl:if>
     </xsl:if>
-    <field name="contact{$fieldSuffix}">{
-      org:"<xsl:value-of
-        select="replace($organisationName, '&quot;', '\\&quot;')"/>",
-      role:"<xsl:value-of select="$role"/>"
-      }
-    </field>
   </xsl:template>
 </xsl:stylesheet>
