@@ -220,13 +220,13 @@ public class SolrRequestBean {
 
       ModifiableSolrParams params = new ModifiableSolrParams();
       params.set(AnalysisParams.FIELD_NAME, fieldName);
-      params.set(AnalysisParams.FIELD_VALUE, fieldValue);
+      params.set(AnalysisParams.FIELD_VALUE, fieldValue.trim());
 
       FieldAnalysisRequest request = new FieldAnalysisRequest();
       List<String> fieldNames = new ArrayList<String>();
       fieldNames.add(fieldName);
       request.setFieldNames(fieldNames);
-      request.setFieldValue(fieldValue);
+      request.setFieldValue(fieldValue.trim());
 
       FieldAnalysisResponse res = new FieldAnalysisResponse();
       try {
@@ -254,14 +254,16 @@ public class SolrRequestBean {
               && analysisPhase.getTokens().size() > 0) {
             AnalysisResponseBase.TokenInfo token =
                 analysisPhase.getTokens().get(tokenPosition);
-            return token.getText();
+            if (token.getType().equals("SYNONYM")) {
+              return token.getText();
+            }
           }
         }
       }
-      return fieldValue;
+      return "";
     } catch (Exception exception) {
       exception.printStackTrace();
-      return fieldValue;
+      return "";
     }
   }
 

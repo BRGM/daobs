@@ -908,17 +908,17 @@
     <xsl:message>Indexing producer <xsl:value-of select="$organisationName"/> </xsl:message>
     <xsl:if test="normalize-space($organisationName) != ''">
       <xsl:variable name="producerTerritory" as="xs:string"
-                    select="solr:analyzeField('producerTerritory', $organisationName)"/>
+                    select="solr:analyzeField('producerTerritory', normalize-space($organisationName))"/>
       <xsl:if test="$producerTerritory">
         <field name="producerTerritory"><xsl:value-of select="$producerTerritory"/></field>
       </xsl:if>
       <xsl:variable name="producerParent" as="xs:string"
-                    select="solr:analyzeField('producerParent', $organisationName)"/>
+                    select="solr:analyzeField('producerParent', normalize-space($organisationName))"/>
       <xsl:if test="$producerParent">
         <field name="producerParent"><xsl:value-of select="$producerParent"/></field>
       </xsl:if>
       <xsl:variable name="producerSynonym" as="xs:string"
-                    select="solr:analyzeField('producerSynonym', $organisationName)"/>
+                    select="solr:analyzeField('producerSynonym', normalize-space($organisationName))"/>
       <xsl:if test="$producerSynonym">
         <field name="producerSynonym"><xsl:value-of select="$producerSynonym"/></field>
       </xsl:if>
