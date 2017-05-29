@@ -44,7 +44,7 @@
   <!-- Define if operatesOn type should be defined
   by analysis of protocol in all transfers options.
   -->
-  <xsl:variable name="operatesOnSetByProtocol" select="false()"/>
+  <xsl:variable name="operatesOnSetByProtocol" select="true()"/>
 
   <!-- Define if search for regulation title should be strict or light. -->
   <xsl:variable name="inspireRegulationLaxCheck" select="false()"/>
