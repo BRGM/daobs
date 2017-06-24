@@ -21,13 +21,18 @@
 
 package org.daobs.tasks.validation.inspire;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.dao.DataAccessException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.Normalizer;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.sql.DataSource;
 
@@ -36,6 +41,7 @@ import javax.sql.DataSource;
  * a metadata record.
  */
 public class DbValidatorClient extends JdbcDaoSupport {
+  private Log log = LogFactory.getLog(this.getClass());
 
   /**
    * Valid INSPIRE rule result varchar in database.
@@ -45,6 +51,18 @@ public class DbValidatorClient extends JdbcDaoSupport {
    * SQL query to get INSPIRE rule result from a metadata uuid.
    */
   private String selectMetadataValidationResultQuery;
+  /**
+   * SQL query to get adhérent from a metadata uuid.
+   */
+  private String selectOwnerQuery;
+
+  public String getSelectOwnerQuery() {
+    return selectOwnerQuery;
+  }
+
+  public void setSelectOwnerQuery(String selectOwnerQuery) {
+    this.selectOwnerQuery = selectOwnerQuery;
+  }
 
   /**
    * Constuctor.
@@ -56,10 +74,12 @@ public class DbValidatorClient extends JdbcDaoSupport {
    */
   public DbValidatorClient(DataSource dataSource,
                            String validRuleResult,
-                           String selectMetadataValidationResultQuery) {
+                           String selectMetadataValidationResultQuery,
+                           String selectOwnerQuery) {
     setDataSource(dataSource);
     this.validRuleResult = validRuleResult;
     this.selectMetadataValidationResultQuery = selectMetadataValidationResultQuery;
+    this.selectOwnerQuery = selectOwnerQuery;
   }
 
   /**
@@ -159,6 +179,22 @@ public class DbValidatorClient extends JdbcDaoSupport {
       report.setCompletenessIndicator(100);
     }
     return report;
+  }
+
+  public Map<String, Object> getAdherent(String metadataUuid) throws DataAccessException, SQLException {
+
+    Map<String, Object> results = new HashMap<>();
+    try {
+      results = getJdbcTemplate().queryForMap(
+        selectOwnerQuery,
+        new String[]{metadataUuid});
+    } catch (EmptyResultDataAccessException e) {
+      log.debug(String.format("No adherent found for %s.", metadataUuid));
+      results = new HashMap<>();
+      results.put("nom_adherent", "");
+      results.put("nom_pt_moiss", "");
+    }
+    return results;
   }
 
   /**

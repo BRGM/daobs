@@ -175,6 +175,10 @@
   <field name="contact" type="string" stored="true" indexed="true"
          multiValued="true"/>
 
+  <field name="geocatMember" type="string" stored="true" indexed="true"
+         multiValued="false" docValues="true"/>
+  <field name="geocatHarvester" type="string" stored="true" indexed="true"
+         multiValued="false" docValues="true"/>
 
   <field name="resourceType" type="string" stored="true" indexed="true"
          multiValued="true"/>

@@ -26,6 +26,7 @@ import org.apache.camel.Header;
 import org.springframework.dao.DataAccessException;
 
 import java.sql.SQLException;
+import java.util.Map;
 
 /**
  * Database validator bean.
@@ -58,8 +59,6 @@ public class DbValidatorBean {
    * it against the INSPIRE validation service.
    * The output body contains the validation report.
    * Headers are propagated.
-   *
-   *
    */
   public void validateBody(
       @Header(METADATA_ID_KEY) String metadataId,
@@ -72,5 +71,22 @@ public class DbValidatorBean {
     }
     exchange.getOut().setBody(report);
     exchange.getOut().setHeaders(exchange.getIn().getHeaders());
+  }
+
+
+  public void getAdherent(
+    @Header(METADATA_ID_KEY) String metadataId,
+    Exchange exchange) {
+    Map<String, Object> report = null;
+    try {
+      report = dbValidatorClient.getAdherent(metadataId);
+    } catch (DataAccessException | SQLException e1) {
+      e1.printStackTrace();
+    }
+    exchange.getOut().setBody(exchange.getIn().getBody());
+    final Map<String, Object> headers = exchange.getIn().getHeaders();
+    headers.put("geocatMember", report.get("nom_adherent"));
+    headers.put("geocatHarvester", report.get("nom_pt_moiss"));
+    exchange.getOut().setHeaders(headers);
   }
 }

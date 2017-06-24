@@ -39,6 +39,7 @@ import java.net.URISyntaxException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 @Ignore
@@ -102,7 +103,8 @@ public class DbValidatorClientTest extends TestCase {
         DataSource dataSource = getDataSource();
         this.validator = new DbValidatorClient(dataSource,
                 props.getProperty("task.db-validation-checker.db.validRuleResult"),
-                props.getProperty("task.db-validation-checker.db.sql.selectMetadataValidationResultQuery"));
+                props.getProperty("task.db-validation-checker.db.sql.selectMetadataValidationResultQuery"),
+                props.getProperty("task.db-validation-checker.db.sql.selectOwnerQuery"));
         this.template = new JdbcTemplate(dataSource);
     }
 
@@ -191,7 +193,7 @@ public class DbValidatorClientTest extends TestCase {
         Properties props = new Properties();
         URI configURI = Thread.currentThread()
                 .getContextClassLoader()
-                .getResource(System.getProperty("config.dir")).toURI();
+                .getResource("config.properties").toURI();
         InputStream input = new FileInputStream(configURI.getPath());
         props.load(input);
         input.close();
@@ -228,9 +230,8 @@ public class DbValidatorClientTest extends TestCase {
         assertEquals(report.isAboveThreshold(), false);
     }
 
-
     /**
-     * Tezst to check validation of an unknown metadata
+     * Test to check validation of an unknown metadata
      *
      * @throws DataAccessException
      * @throws SQLException
@@ -241,6 +242,30 @@ public class DbValidatorClientTest extends TestCase {
         assertNotNull(report);
         assertEquals(report.getStatus(), false);
         assertEquals(report.isAboveThreshold(), false);
+    }
+
+    /**
+     * Test to get owner of a metadata
+     *
+     * @throws DataAccessException
+     * @throws SQLException
+     */
+    @org.junit.Test
+    public void testGetOwner() throws DataAccessException, SQLException {
+        Map<String, Object> report = validator.getAdherent(getValidMetadataUUID());
+        assertNotNull(report);
+    }
+
+    /**
+     * Test to get owner of an unknown metadata
+     *
+     * @throws DataAccessException
+     * @throws SQLException
+     */
+    @org.junit.Test
+    public void testGetOwnerOfNonExistingRecord() throws DataAccessException, SQLException {
+      Map<String, Object> report = validator.getAdherent(UNKOWN_METADATA_UUID);
+      assertNull(report);
     }
 
 

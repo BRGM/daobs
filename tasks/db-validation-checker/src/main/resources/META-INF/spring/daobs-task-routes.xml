@@ -48,6 +48,8 @@
               value="${task.db-validation-checker.db.validRuleResult}"/>
     <property name="selectMetadataValidationResultQuery"
               value="${task.db-validation-checker.db.sql.selectMetadataValidationResultQuery}"/>
+    <property name="selectOwnerQuery"
+              value="${task.db-validation-checker.db.sql.selectOwnerQuery}"/>
   </bean>
 
   <bean id="dataSource"
@@ -199,6 +201,8 @@
                   logName="org.daobs.task.DBValidationChecker"/>
           <cm:bean ref="dbValidator"
                    method="validateBody"/>
+          <cm:bean ref="dbValidator"
+                   method="getAdherent"/>
           <cm:setBody>
             <cm:simple>
               <![CDATA[<doc>
@@ -208,6 +212,8 @@
                 <field name="completenessIndicator" update="set">${body.completenessIndicator}</field>
                 <field name="isAboveThreshold" update="set">${body.isAboveThreshold}</field>
                 <field name="validReport" update="set"><![CDATA[${body.report}]]><![CDATA[]]]]><![CDATA[>]]><![CDATA[</field>
+                <field name="geocatMember" update="set">${header.geocatMember}</field>
+                <field name="geocatHarvester" update="set">${header.geocatHarvester}</field>
               </doc>]]>
             </cm:simple>
           </cm:setBody>
