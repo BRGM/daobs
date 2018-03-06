@@ -178,7 +178,7 @@
   <field name="geocatMember" type="string" stored="true" indexed="true"
          multiValued="false" docValues="true"/>
   <field name="geocatHarvester" type="string" stored="true" indexed="true"
-         multiValued="false" docValues="true"/>
+		 multiValued="false" docValues="true"/>
 
   <field name="resourceType" type="string" stored="true" indexed="true"
          multiValued="true"/>
@@ -262,7 +262,7 @@
 
   <dynamicField name="extra_*" type="string" stored="true" indexed="true"
                 multiValued="true" docValues="true"/>
-  <field name="extra_medsea_syn" type="managed_medsea" stored="true"
+  <dynamicField name="extra_medsea_*" type="managed_medsea" stored="true"
                 indexed="true" multiValued="true"/>
 
   <!-- geocatalogue.fr fields -->
@@ -279,6 +279,15 @@
 
   <field name="isOpenData" type="boolean" stored="true" indexed="true"
          multiValued="false"/>
+  <!-- ajouts TVM octobre 2017, passage en multiValued sinon erreur -->
+  <field name="isInspire" type="boolean" stored="true" indexed="true"
+         multiValued="true"/>
+  <field name="isViewable" type="boolean" stored="true" indexed="true"
+         multiValued="true"/>
+  <field name="isDownloadable" type="boolean" stored="true" indexed="true"
+         multiValued="true"/>
+  <field name="isViewAndDown" type="boolean" stored="true" indexed="true"
+         multiValued="true"/>
 
   <!-- Field to store validation against the XSD -->
   <field name="isSchemaValid" type="boolean" stored="true" indexed="true"
@@ -329,6 +338,8 @@
          indexed="true" multiValued="true"/>
 
 
+  <field name="bbox" type="bbox" stored="true" indexed="true"
+         multiValued="true"/>
   <field name="geom" type="location_rpt" stored="true" indexed="true"
          multiValued="true"/>
 
@@ -850,8 +861,8 @@
              positionIncrementGap="100">
     <analyzer>
       <tokenizer class="solr.KeywordTokenizerFactory"/>
-      <filter class="solr.LowerCaseFilterFactory"/>
-      <filter class="solr.ManagedSynonymFilterFactory"
+      <!-- <filter class="solr.LowerCaseFilterFactory"/> -->
+      <filter class="solr.ManagedSynonymFilterFactory" 
               managed="geocat_producer_territory"/>
     </analyzer>
   </fieldType>
@@ -861,7 +872,7 @@
              positionIncrementGap="100">
     <analyzer>
       <tokenizer class="solr.KeywordTokenizerFactory"/>
-      <filter class="solr.LowerCaseFilterFactory"/>
+      <!-- <filter class="solr.LowerCaseFilterFactory"/> -->
       <filter class="solr.ManagedSynonymFilterFactory"
               managed="geocat_producer_broader"/>
     </analyzer>
@@ -872,7 +883,7 @@
              positionIncrementGap="100">
     <analyzer>
       <tokenizer class="solr.KeywordTokenizerFactory"/>
-      <filter class="solr.LowerCaseFilterFactory"/>
+      <!-- <filter class="solr.LowerCaseFilterFactory"/> -->
       <filter class="solr.ManagedSynonymFilterFactory"
               managed="geocat_producer_synonym"/>
     </analyzer>
@@ -1184,9 +1195,15 @@
   -->
   <fieldType name="location_rpt"
              class="solr.SpatialRecursivePrefixTreeFieldType"
-             spatialContextFactory="org.locationtech.spatial4j.context.jts.JtsSpatialContextFactory"
+             spatialContextFactory="com.spatial4j.core.context.jts.JtsSpatialContextFactory"
              geo="true" distErrPct="0.025" maxDistErr="0.000009"
-             distanceUnits="kilometers"/>
+             units="degrees"/>
+
+  <!-- Spatial rectangle (bounding box) field. It supports most spatial predicates, and has
+   special relevancy modes: score=overlapRatio|area|area2D (local-param to the query).  DocValues is required for
+   relevancy. -->
+  <fieldType name="bbox" class="solr.BBoxField"
+             geo="true" units="degrees" numberType="_bbox_coord"/>
   <fieldType name="_bbox_coord" class="solr.TrieDoubleField" precisionStep="8"
              docValues="true" stored="false"/>
 
