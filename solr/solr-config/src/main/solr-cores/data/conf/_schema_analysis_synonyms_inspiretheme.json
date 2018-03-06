@@ -19,9 +19,6 @@
     "Sisteme de coordonate de referinţă": [
       "Coordinate reference systems"
     ],
-    "Sisteme de coordonate de referință": [
-      "Coordinate reference systems"
-    ],
     "Systemy odniesienia za pomocą współrzędnych": [
       "Coordinate reference systems"
     ],
@@ -76,6 +73,9 @@
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/1": [
       "Coordinate reference systems"
     ],
+    "Coordinate reference systems": [
+      "Coordinate reference systems"
+    ],
     "Höjd": [
       "Elevation"
     ],
@@ -83,9 +83,6 @@
       "Elevation"
     ],
     "Elevaţie": [
-      "Elevation"
-    ],
-    "Elevație": [
       "Elevation"
     ],
     "Digitalni model višin": [
@@ -140,6 +137,9 @@
       "Elevation"
     ],
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/10": [
+      "Elevation"
+    ],
+    "Elevation": [
       "Elevation"
     ],
     "Landtäcke": [
@@ -208,6 +208,9 @@
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/11": [
       "Land cover"
     ],
+    "Land cover": [
+      "Land cover"
+    ],
     "Ortofoto": [
       "Orthoimagery"
     ],
@@ -268,6 +271,9 @@
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/12": [
       "Orthoimagery"
     ],
+    "Orthoimagery": [
+      "Orthoimagery"
+    ],
     "Geologia": [
       "Geology"
     ],
@@ -310,13 +316,13 @@
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/13": [
       "Geology"
     ],
+    "Geology": [
+      "Geology"
+    ],
     "Unidades estatísticas": [
       "Statistical units"
     ],
     "Unităţi statistice": [
-      "Statistical units"
-    ],
-    "Unități statistice": [
       "Statistical units"
     ],
     "Štatistické jednotky": [
@@ -377,6 +383,9 @@
       "Statistical units"
     ],
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/14": [
+      "Statistical units"
+    ],
+    "Statistical units": [
       "Statistical units"
     ],
     "Stavbe": [
@@ -445,6 +454,9 @@
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/15": [
       "Buildings"
     ],
+    "Buildings": [
+      "Buildings"
+    ],
     "Tla": [
       "Soil"
     ],
@@ -509,6 +521,9 @@
       "Soil"
     ],
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/16": [
+      "Soil"
+    ],
+    "Soil": [
       "Soil"
     ],
     "Markanvändning": [
@@ -577,6 +592,9 @@
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/17": [
       "Land use"
     ],
+    "Land use": [
+      "Land use"
+    ],
     "Människors hälsa och säkerhet": [
       "Human health and safety"
     ],
@@ -590,9 +608,6 @@
       "Human health and safety"
     ],
     "Sănătate şi siguranţă umană": [
-      "Human health and safety"
-    ],
-    "Sănătate și siguranță umană": [
       "Human health and safety"
     ],
     "Saúde humana e segurança": [
@@ -646,6 +661,9 @@
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/18": [
       "Human health and safety"
     ],
+    "Human health and safety": [
+      "Human health and safety"
+    ],
     "Allmännyttiga och offentliga tjänster": [
       "Utility and governmental services"
     ],
@@ -653,9 +671,6 @@
       "Utility and governmental services"
     ],
     "Servicii de utilitate publică şi servicii publice": [
-      "Utility and governmental services"
-    ],
-    "Servicii de utilitate publică și servicii publice": [
       "Utility and governmental services"
     ],
     "Verejné a štátne služby": [
@@ -713,6 +728,9 @@
       "Utility and governmental services"
     ],
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/19": [
+      "Utility and governmental services"
+    ],
+    "Utility and governmental services": [
       "Utility and governmental services"
     ],
     "Geografska koordinatna mreža": [
@@ -781,6 +799,9 @@
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/2": [
       "Geographical grid systems"
     ],
+    "Geographical grid systems": [
+      "Geographical grid systems"
+    ],
     "Anläggningar för miljöövervakning": [
       "Environmental monitoring facilities"
     ],
@@ -800,9 +821,6 @@
       "Environmental monitoring facilities"
     ],
     "Instalaţii de supraveghere a mediului": [
-      "Environmental monitoring facilities"
-    ],
-    "Instalații de supraveghere a mediului": [
       "Environmental monitoring facilities"
     ],
     "Faċilitajiet ta' monitoraġġ ambjentali": [
@@ -850,13 +868,13 @@
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/20": [
       "Environmental monitoring facilities"
     ],
+    "Environmental monitoring facilities": [
+      "Environmental monitoring facilities"
+    ],
     "Produktions- och industrianläggningar": [
       "Production and industrial facilities"
     ],
     "Instalaţii de producţie şi industriale": [
-      "Production and industrial facilities"
-    ],
-    "Instalații de producție și industriale": [
       "Production and industrial facilities"
     ],
     "Proizvodni in industrijski objekti in naprave": [
@@ -919,6 +937,9 @@
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/21": [
       "Production and industrial facilities"
     ],
+    "Production and industrial facilities": [
+      "Production and industrial facilities"
+    ],
     "Jordbruks- och vattenbruksanläggningar": [
       "Agricultural and aquaculture facilities"
     ],
@@ -932,9 +953,6 @@
       "Agricultural and aquaculture facilities"
     ],
     "Instalaţii agricole şi pentru acvacultură": [
-      "Agricultural and aquaculture facilities"
-    ],
-    "Instalații agricole și pentru acvacultură": [
       "Agricultural and aquaculture facilities"
     ],
     "Obiekty rolnicze oraz akwakultury": [
@@ -988,6 +1006,9 @@
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/22": [
       "Agricultural and aquaculture facilities"
     ],
+    "Agricultural and aquaculture facilities": [
+      "Agricultural and aquaculture facilities"
+    ],
     "Befolkningsfördelning – demografi": [
       "Population distribution — demography"
     ],
@@ -995,9 +1016,6 @@
       "Population distribution — demography"
     ],
     "Repartizarea populaţiei – demografie": [
-      "Population distribution — demography"
-    ],
-    "Repartizarea populației – demografie": [
       "Population distribution — demography"
     ],
     "Rozmiestnenie obyvateľstva – demografia": [
@@ -1057,6 +1075,9 @@
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/23": [
       "Population distribution — demography"
     ],
+    "Population distribution — demography": [
+      "Population distribution — demography"
+    ],
     "Spravované/obmedzené/regulované zóny a jednotky podávajúce správy": [
       "Area management/restriction/regulation zones and reporting units"
     ],
@@ -1067,9 +1088,6 @@
       "Area management/restriction/regulation zones and reporting units"
     ],
     "Zone de administrare/restricţie/reglementare şi unităţi de raportare": [
-      "Area management/restriction/regulation zones and reporting units"
-    ],
-    "Zone de administrare/restricție/reglementare și unități de raportare": [
       "Area management/restriction/regulation zones and reporting units"
     ],
     "Gebiedsbeheer, gebieden waar beperkingen gelden, gereguleerde gebieden en rapportage-eenheden": [
@@ -1124,6 +1142,9 @@
       "Area management/restriction/regulation zones and reporting units"
     ],
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/24": [
+      "Area management/restriction/regulation zones and reporting units"
+    ],
+    "Area management/restriction/regulation zones and reporting units": [
       "Area management/restriction/regulation zones and reporting units"
     ],
     "Območja nevarnosti naravnih nesreč": [
@@ -1195,6 +1216,9 @@
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/25": [
       "Natural risk zones"
     ],
+    "Natural risk zones": [
+      "Natural risk zones"
+    ],
     "Ozračje": [
       "Atmospheric conditions"
     ],
@@ -1202,9 +1226,6 @@
       "Atmospheric conditions"
     ],
     "Condiţii atmosferice": [
-      "Atmospheric conditions"
-    ],
-    "Condiții atmosferice": [
       "Atmospheric conditions"
     ],
     "Atmosférické podmienky": [
@@ -1262,6 +1283,9 @@
       "Atmospheric conditions"
     ],
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/26": [
+      "Atmospheric conditions"
+    ],
+    "Atmospheric conditions": [
       "Atmospheric conditions"
     ],
     "Meteorološke značilnosti": [
@@ -1330,6 +1354,9 @@
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/27": [
       "Meteorological geographical features"
     ],
+    "Meteorological geographical features": [
+      "Meteorological geographical features"
+    ],
     "Geografiska oceanografiska förhållanden": [
       "Oceanographic geographical features"
     ],
@@ -1394,6 +1421,9 @@
       "Oceanographic geographical features"
     ],
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/28": [
+      "Oceanographic geographical features"
+    ],
+    "Oceanographic geographical features": [
       "Oceanographic geographical features"
     ],
     "Havsområden": [
@@ -1462,6 +1492,9 @@
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/29": [
       "Sea regions"
     ],
+    "Sea regions": [
+      "Sea regions"
+    ],
     "Zemljepisna imena": [
       "Geographical names"
     ],
@@ -1526,6 +1559,9 @@
       "Geographical names"
     ],
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/3": [
+      "Geographical names"
+    ],
+    "Geographical names": [
       "Geographical names"
     ],
     "Biogeografiska regioner": [
@@ -1594,6 +1630,9 @@
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/30": [
       "Bio-geographical regions"
     ],
+    "Bio-geographical regions": [
+      "Bio-geographical regions"
+    ],
     "Naturtyper och biotoper": [
       "Habitats and biotopes"
     ],
@@ -1604,9 +1643,6 @@
       "Habitats and biotopes"
     ],
     "Habitate şi biotopuri": [
-      "Habitats and biotopes"
-    ],
-    "Habitate și biotopuri": [
       "Habitats and biotopes"
     ],
     "Habitats e biótopos": [
@@ -1661,6 +1697,9 @@
       "Habitats and biotopes"
     ],
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/31": [
+      "Habitats and biotopes"
+    ],
+    "Habitats and biotopes": [
       "Habitats and biotopes"
     ],
     "Arters utbredning": [
@@ -1729,6 +1768,9 @@
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/32": [
       "Species distribution"
     ],
+    "Species distribution": [
+      "Species distribution"
+    ],
     "Zdroje energie": [
       "Energy resources"
     ],
@@ -1790,6 +1832,9 @@
       "Energy resources"
     ],
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/33": [
+      "Energy resources"
+    ],
+    "Energy resources": [
       "Energy resources"
     ],
     "Mineralni viri": [
@@ -1858,6 +1903,9 @@
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/34": [
       "Mineral resources"
     ],
+    "Mineral resources": [
+      "Mineral resources"
+    ],
     "Upravne enote": [
       "Administrative units"
     ],
@@ -1868,9 +1916,6 @@
       "Administrative units"
     ],
     "Unităţi administrative": [
-      "Administrative units"
-    ],
-    "Unități administrative": [
       "Administrative units"
     ],
     "Jednostki administracyjne": [
@@ -1924,6 +1969,9 @@
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/4": [
       "Administrative units"
     ],
+    "Administrative units": [
+      "Administrative units"
+    ],
     "Adrese": [
       "Addresses"
     ],
@@ -1973,6 +2021,9 @@
       "Addresses"
     ],
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/5": [
+      "Addresses"
+    ],
+    "Addresses": [
       "Addresses"
     ],
     "Fastighetsområden": [
@@ -2041,6 +2092,9 @@
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/6": [
       "Cadastral parcels"
     ],
+    "Cadastral parcels": [
+      "Cadastral parcels"
+    ],
     "Transportnät": [
       "Transport networks"
     ],
@@ -2051,9 +2105,6 @@
       "Transport networks"
     ],
     "Reţele de transport": [
-      "Transport networks"
-    ],
-    "Rețele de transport": [
       "Transport networks"
     ],
     "Redes de transporte": [
@@ -2105,6 +2156,9 @@
       "Transport networks"
     ],
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/7": [
+      "Transport networks"
+    ],
+    "Transport networks": [
       "Transport networks"
     ],
     "Hidrografija": [
@@ -2162,6 +2216,9 @@
       "Hydrography"
     ],
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/8": [
+      "Hydrography"
+    ],
+    "Hydrography": [
       "Hydrography"
     ],
     "Zavarovana območja": [
@@ -2222,6 +2279,9 @@
       "Protected sites"
     ],
     "Защитени обекти": [
+      "Protected sites"
+    ],
+    "Protected sites": [
       "Protected sites"
     ],
     "http://rdfdata.eionet.europa.eu/inspirethemes/themes/9": [
