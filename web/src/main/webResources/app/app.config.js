@@ -34,6 +34,8 @@
       root: context,
       solrRoot: solrContext,
       solrAdmin: '${solr.admin.url}',
+      piwikUrl : '${piwik.url}',
+      piwikIdsite : '${piwik.idsite}',
       dashboardCoreName: '${solr.core.dashboard}',
       dashboardCore: api + 'search/${solr.core.dashboard}',
       dataCoreName: '${solr.core.data}',
